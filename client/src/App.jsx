@@ -9,22 +9,19 @@ function App() {
     },
   ]);
 
-  const API = import.meta.env.VITE_API || "http://localhost:4000";
-
   useEffect(() => {
     async function loadUsers() {
       // const response = await fetch(import.meta.env.VITE_API + "/users");
-      const response = await fetch(API + "/users");
+      const response = await fetch("/users");
       const data = await response.json();
       if (data.users) setUsers(data.users);
-      console.log(API);
     }
     loadUsers();
   }, [users]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(API + "/users", {
+    const response = await fetch("/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

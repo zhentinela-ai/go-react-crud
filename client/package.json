@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "postinstall": "npm run build",
     "build": "vite build",
     "preview": "vite preview"
   },
