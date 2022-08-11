@@ -13,7 +13,8 @@ function App() {
 
   useEffect(() => {
     async function loadUsers() {
-      const response = await fetch(API + "/users");
+      // const response = await fetch(API + "/users");
+      const response = await fetch("/users");
       const data = await response.json();
       if (data.users) setUsers(data.users);
     }
@@ -22,13 +23,14 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(API + "/users", {
+    const response = await fetch("/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ name }),
     });
+    console.log(API);
     const data = await response.json();
     console.log(data);
   };
