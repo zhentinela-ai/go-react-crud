@@ -9,7 +9,7 @@ function App() {
     },
   ]);
 
-  const API = "http://localhost:4000" || import.meta.env.VITE_API
+  const API = import.meta.env.VITE_API || "http://localhost:4000"
 
   useEffect(() => {
     async function loadUsers() {
@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div>
-      <h1>Hello World</h1>
+      {/* <h1>Hello World</h1>
       <button
         onClick={async () => {
           const response = await fetch("/users");
@@ -45,7 +45,7 @@ function App() {
       >
         Obtener datos
       </button>
-      <br />
+      <br /> */}
 
       <form onSubmit={handleSubmit}>
         <input

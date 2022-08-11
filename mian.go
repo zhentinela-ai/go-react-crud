@@ -62,8 +62,8 @@ func main() {
 		var users []models.User
 
 		coll := client.Database("gomongodb").Collection("users")
-		databaseName := coll.Database().Name()
-		fmt.Fprintln(os.Stdout, "Connected to MongoDB", databaseName)
+		// databaseName := coll.Database().Name()
+		// fmt.Fprintln(os.Stdout, "Connected to MongoDB", databaseName)
 		results, err := coll.Find(context.TODO(), bson.M{})
 
 		if err != nil {
