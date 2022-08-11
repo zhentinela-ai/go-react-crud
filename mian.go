@@ -45,8 +45,6 @@ func main() {
 		c.BodyParser(&user)
 
 		coll := client.Database("gomongodb").Collection("users")
-		databaseName := coll.Database().Name()
-		fmt.Fprintln(os.Stdout, "Connected to MongoDB", databaseName)
 		result, err := coll.InsertOne(context.TODO(), bson.D{{
 			Key:   "name",
 			Value: user.Name,
