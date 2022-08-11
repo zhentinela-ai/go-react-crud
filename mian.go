@@ -22,7 +22,8 @@ func main() {
 	}
 
 	app := fiber.New()
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://localhost:27017/gomongodb"))
+	// client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://localhost:27017/gomongodb"))
+	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb+srv://zhent:zhent123@cluster0.umrrm.mongodb.net/?retryWrites=true&w=majority"))
 
 	if err != nil {
 		panic(err)

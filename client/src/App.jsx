@@ -2,13 +2,18 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [name, setName] = useState("");
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([
+    {
+      _id: "62f4f02dc82538635c2da44b",
+      name: "maria",
+    },
+  ]);
 
   useEffect(() => {
     async function loadUsers() {
       const response = await fetch(import.meta.env.VITE_API + "/users");
       const data = await response.json();
-      setUsers(data.users);
+      if (data.users) setUsers(data.users);
     }
     loadUsers();
   }, [users]);
@@ -50,7 +55,7 @@ function App() {
       </form>
 
       <ul>
-        {users.map(user => (
+        {users.map((user) => (
           <li key={user._id}>{user.name}</li>
         ))}
       </ul>
